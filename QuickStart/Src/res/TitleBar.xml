@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="800,600" mininfo="400,300" caption="0,0,0,32" sizebox="4,4,4,4">
+    <VerticalLayout bkcolor="FFAAAAA0">
+        <HorizontalLayout height="28" bkcolor="#ffffffff">
+            <Control name="ControlUI1"/>
+            <Button name="1QAZ-2WSX-3EDC-4MIN" width="42" height="26" normalimage=" file='min.png'" hotimage=" file='min.png'" pushedimage=" file='min.png'"/>
+            <Button name="1QAZ-2WSX-3EDC-4MAX" width="42" height="26" normalimage=" file='max.png'" hotimage=" file='max.png'" pushedimage=" file='max.png'"/>
+            <Button name="1QAZ-2WSX-3EDC-4RST" width="42" height="26" visible="false" normalimage=" file='restore.png'" hotimage=" file='restore.png'" pushedimage=" file='restore.png'"/>
+            <Button name="1QAZ-2WSX-3EDC-4CLO" width="42" height="26" normalimage=" file='close.png'" hotimage=" file='close.png'" pushedimage=" file='close.png'"/>
+        </HorizontalLayout>
+        <HorizontalLayout bkcolor="#ff009900">
+            <Button name="1QAZ-2WSX-3EDC-4BON" text="Hello World"/>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>
