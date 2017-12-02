@@ -13,10 +13,38 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="资源文件\png">
+      <UniqueIdentifier>{67384916-61e9-4250-b245-636d5a888739}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\xml">
+      <UniqueIdentifier>{19759fbf-0ed1-404c-8808-b21826a9a4df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cc">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="res\TitleBar.xml">
+      <Filter>资源文件\xml</Filter>
+    </Xml>
+    <Xml Include="res\Button.xml">
+      <Filter>资源文件\xml</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\max.png">
+      <Filter>资源文件\png</Filter>
+    </Image>
+    <Image Include="res\close.png">
+      <Filter>资源文件\png</Filter>
+    </Image>
+    <Image Include="res\min.png">
+      <Filter>资源文件\png</Filter>
+    </Image>
+    <Image Include="res\restore.png">
+      <Filter>资源文件\png</Filter>
+    </Image>
   </ItemGroup>
 </Project>

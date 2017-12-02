@@ -1,52 +1,46 @@
-// win32 test
-//#include <windows.h>
-//#include <tchar.h>
-//
-//int APIENTRY _tWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPTSTR lpCmdLine, int nCmdShow)
-//{
-//	::MessageBox(NULL, _T("Hello World"), NULL, NULL);
-//
-//	return 0;
-//}
-
 #include "UIlib.h"
 
-class DuiFrameWnd : public DuiLib::CWindowWnd, 
-					public DuiLib::INotifyUI {
+// Resource define
+#define RESOURCE_PATH	_T("res")
+#define ROOT_BUTTON_XML _T("Button.xml")
+#define TITLEBAR_XML	_T("TitleBar.xml")
+#define BUTTON_STYLE_XML _T("DefaultButtonStyle.xml")
+
+// ID define
+#define ROOT_BUTTON_ID		_T("1QAZ-2WSX-3EDC-4BON")
+#define TITLEBAR_MIN_ID		_T("1QAZ-2WSX-3EDC-4MIN")
+#define TITLEBAR_MAX_ID		_T("1QAZ-2WSX-3EDC-4MAX")
+#define TITLEBAR_RESTORE_ID	_T("1QAZ-2WSX-3EDC-4RST")
+#define TITLEBAR_CLOSE_ID	_T("1QAZ-2WSX-3EDC-4CLO")
+#define STYLE_BUTTON_0001	_T("1QAZ-2WSX-3EDC-4BTN-0001")
+#define STYLE_BUTTON_0002	_T("1QAZ-2WSX-3EDC-4BTN-0002")
+#define STYLE_BUTTON_0003	_T("1QAZ-2WSX-3EDC-4BTN-0003")
+
+class DuiFrame : public DuiLib::WindowImplBase {
 public:
-	virtual LPCTSTR GetWindowClassName() const { return _T("DuiFrameWnd"); }
+	virtual DuiLib::CDuiString GetSkinFolder() { return RESOURCE_PATH; }
+	virtual DuiLib::CDuiString GetSkinFile() { return BUTTON_STYLE_XML; }
+	virtual LPCTSTR GetWindowClassName(void) const { return ROOT_BUTTON_ID; }
 
-	virtual void Notify(DuiLib::TNotifyUI& msg) {
-		if (msg.sType == DUI_MSGTYPE_CLICK) {
-			if (msg.pSender->GetName() == _T("1QAZ-2WSX-3EDC-4RFV")) {
-				::MessageBox(NULL, _T("click"), _T("button"), NULL);
-			}
+	virtual void OnClick(DuiLib::TNotifyUI& msg) {
+		if (msg.pSender->GetName() == ROOT_BUTTON_ID) {
+			::MessageBox(NULL, _T("click"), _T("button"), NULL);
+		}
+		if (msg.pSender->GetName() == TITLEBAR_MIN_ID) {
+			
+		}
+		if (msg.pSender->GetName() == TITLEBAR_MAX_ID) {
+			m_PaintManager.FindControl(TITLEBAR_MAX_ID)->SetVisible(false);
+			m_PaintManager.FindControl(TITLEBAR_RESTORE_ID)->SetVisible(true);
+		}
+		if (msg.pSender->GetName() == TITLEBAR_RESTORE_ID) {
+			m_PaintManager.FindControl(TITLEBAR_RESTORE_ID)->SetVisible(false);
+			m_PaintManager.FindControl(TITLEBAR_MAX_ID)->SetVisible(true);
+		}
+		if (msg.pSender->GetName() == TITLEBAR_CLOSE_ID) {
+			Close();
 		}
 	}
-
-	virtual LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) {
-		LRESULT lRes = 0;
-
-		if (uMsg == WM_CREATE) {
-			DuiLib::CControlUI *pWnd = new DuiLib::CButtonUI;
-			pWnd->SetName(_T("1QAZ-2WSX-3EDC-4RFV"));
-			pWnd->SetText(_T("Hello World"));
-			pWnd->SetBkColor(0xF3F3F3F3);
-
-			paintMgr_.Init(m_hWnd);
-			paintMgr_.AttachDialog(pWnd);
-			paintMgr_.AddNotifier(this);
-
-			return lRes;
-		}
-
-		if (paintMgr_.MessageHandler(uMsg, wParam, lParam, lRes))
-			return lRes;
-
-		return __super::HandleMessage(uMsg, wParam, lParam);
-	}
-protected:
-	DuiLib::CPaintManagerUI paintMgr_;
 };
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
@@ -54,8 +48,11 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 					   LPTSTR lpCmdLine,
 					   int nCmdShow) {
 	DuiLib::CPaintManagerUI::SetInstance(hInstance);
-	DuiFrameWnd duiFrame;
+	DuiLib::CPaintManagerUI::SetResourcePath(RESOURCE_PATH);
+
+	DuiFrame duiFrame;
 	duiFrame.Create(NULL, _T("DuiWnd"), UI_WNDSTYLE_FRAME, WS_EX_WINDOWEDGE);
+	duiFrame.CenterWindow();
 	duiFrame.ShowModal();
 
 	return 0;

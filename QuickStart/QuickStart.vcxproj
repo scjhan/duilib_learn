@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>F:\cpplib\duilib\simple\duilib\include;$(IncludePath)</IncludePath>
     <LibraryPath>F:\cpplib\duilib\simple\duilib\lib;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)$(TargetName)\Bin</OutDir>
+    <OutDir>$(SolutionDir)$(TargetName)\Bin\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -57,7 +57,7 @@
       <AdditionalDependencies>DuiLib_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>echo "copy the required binary files to output directory ..."
+      <Command>echo copy the required binary files to output directory ...
 xcopy "$(SolutionDir)duilib\*.dll" "$(TargetDir)" /y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -77,6 +77,16 @@ xcopy "$(SolutionDir)duilib\*.dll" "$(TargetDir)" /y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="res\Button.xml" />
+    <Xml Include="res\TitleBar.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\close.png" />
+    <Image Include="res\max.png" />
+    <Image Include="res\min.png" />
+    <Image Include="res\restore.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
