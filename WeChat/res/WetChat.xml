@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window caption="0,0,0,36" sizebox="4,4,6,6" size="800,600" mininfo="600,400">
+    <Font id="0" name="微软雅黑" size="18" />
+    <Font id="1" name="微软雅黑" size="14" />
+    <Font id="2" name="微软雅黑" size="13" />
+    <HorizontalLayout>
+        <!--左侧菜单=-->
+        <HorizontalLayout width="60" bkcolor="#FF2A2B2D">
+            <Control />
+            <VerticalLayout width="34">
+                <Control height="20" />
+                <Button name="BtnAvatar" height="34" width="34" bkimage="avatar.png" />
+                <Control height="20" />
+                <Button name="BtnMsg" height="34" width="34" normalimage="msg_normal.png" pushedimage="msg_pushed.png" tooltip="聊天" />
+                <Control height="20" />
+                <Button name="BtnContact" height="34" width="34" normalimage="contact_normal.png" pushedimage="contact_pushed.png" tooltip="通讯录" />
+                <Control height="20" />
+                <Button name="BtnCollect" height="34" width="34" normalimage="collect_normal.png" pushedimage="collect_pushed.png" tooltip="收藏" />
+                <Control />
+                <Button name="BtnSetting" height="34" width="34" normalimage="setting_normal.png" pushedimage="setting_pushed.png" hotimage="setting_hot.png" tooltip="更多" />
+                <Control height="20" />
+            </VerticalLayout>
+            <Control />
+        </HorizontalLayout>
+        <!--中间列表-->
+        <VerticalLayout width="250" bkcolor="#FFEDEAE8">
+            <VerticalLayout height="61">
+                <Control />
+                <HorizontalLayout height="25">
+                    <Control width="15" />
+                    <Edit name="EditSearch" height="25" width="164" bkimage="search_normal.png" font="2" />
+                    <Button name="BtnSearch" height="25" width="26" bkimage="search_button_normal.png" />
+                    <Button name="BtnSearch" height="25" width="26" bkimage="search_button_cancel.png" visible="false" />
+                    <Control width="10" />
+                    <Button name="BtnPlus" height="25" width="26" normalimage="plus_normal.png" pushedimage="plus_pushed.png" hotimage="plus_hot.png" tooltip="发起群聊" />
+                    <Control />
+                </HorizontalLayout>
+                <Control />
+            </VerticalLayout>
+            <!--分割线-->
+            <Control height="1" bkcolor="#FFE7E7E7" />
+            <!--对话列表-->
+        </VerticalLayout>
+        <!--右侧主面板-->
+        <VerticalLayout width="490" bkcolor="#FFF5F5F5">
+            <VerticalLayout height="61">
+                <!--上方菜单-->
+                <HorizontalLayout height="24">
+                    <Control />
+                    <Button name="BtnDing" width="34" height="24" normalimage="ding_normal.png" pushedimage="ding_pushed.png" hotimage="ding_hot.png" tooltip="置顶" />
+                    <Button name="BtnMin" width="34" height="24" normalimage="min_normal.png" pushedimage="min_pushed.png" hotimage="min_hot.png" tooltip="最小化" />
+                    <Button name="BtnMax" width="34" height="24" normalimage="max_normal.png" pushedimage="max_pushed.png" hotimage="max_hot.png" tooltip="最大化" />
+                    <Button name="BtnRestore" visible="false" width="34" height="24" normalimage="restore_normal.png" pushedimage="restore_pushed.png" hotimage="restore_hot.png" tooltip="向下还原" />
+                    <Button name="BtnClose" width="34" height="24" normalimage="close_normal.png" pushedimage="close_pushed.png" hotimage="close_hot.png" tooltip="关闭" />
+                </HorizontalLayout>
+                <!--Title和工具按钮-->
+                <HorizontalLayout height="38">
+                    <Control width="32" />
+                    <Label name="LblChater" text="新建聊天室(2)" font="0" />
+                    <Control />
+                    <Button name="BtnTool" width="44" height="31" normalimage="tool_normal.png" pushedimage="tool_pushed.png" hotimage="tool_hot.png" />
+                </HorizontalLayout>
+            </VerticalLayout>
+            <!--分割线-->
+            <Control height="1" bkcolor="#FFE7E7E7" />
+            <!--对话框-->
+            <Control />
+            <!--输入面板=-->
+            <VerticalLayout bkcolor="#FFFFFFFF" height="150">
+                <!--功能选项-->
+                <HorizontalLayout height="30">
+                    <Control width="20" />
+                    <Button name="BtnFace" width="33" height="30" normalimage="face_normal.png" pushedimage="face_pushed.png" hotimage="face_hot.png" tooltip="表情" />
+                    <Button name="BtnFile" width="33" height="30" normalimage="file_normal.png" pushedimage="file_pushed.png" hotimage="file_hot.png" tooltip="发送文件" />
+                    <Button name="BtnX" width="33" height="30" normalimage="x_normal.png" pushedimage="x_pushed.png" hotimage="x_hot.png" tooltip="截图(Alt + A)" />
+                </HorizontalLayout>
+                <!--文字编辑-->
+                <HorizontalLayout height="82">
+                    <Control width="20" />
+                    <RichEdit name="REditInput" height="82" font="1" />
+                </HorizontalLayout>
+                <!--发送按钮-->
+                <HorizontalLayout height="28">
+                    <Control />
+                    <Button name="BtnSend" width="70" bkcolor="#FFF5F5F5" text="发送(S)" font="1" textcolor="#FF606060" />
+                    <Control width="30" />
+                </HorizontalLayout>
+                <Control height="10" />
+            </VerticalLayout>
+        </VerticalLayout>
+    </HorizontalLayout>
+</Window>
