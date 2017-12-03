@@ -15,7 +15,23 @@ LPCTSTR MainFrame::GetWindowClassName(void) const {
 LRESULT MainFrame::OnCreate(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled) {
 	bSendHot_ = false;
 	bWndTop_ = false;
+	bWndMax_ = false;
 	return __super::OnCreate(uMsg, wParam, lParam, bHandled);
+}
+
+LRESULT MainFrame::HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam) {
+	if (uMsg == WM_NCLBUTTONDBLCLK) {
+		if (!bWndMax_) {
+			bWndMax_ = true;
+			m_PaintManager.FindControl(BUTTON_MAX)->SetVisible(false);
+			m_PaintManager.FindControl(BUTTON_RESTORE)->SetVisible(true);
+		} else {
+			bWndMax_ = false;
+			m_PaintManager.FindControl(BUTTON_RESTORE)->SetVisible(false);
+			m_PaintManager.FindControl(BUTTON_MAX)->SetVisible(true);
+		}		
+	}
+	return __super::HandleMessage(uMsg, wParam, lParam);
 }
 
 void MainFrame::OnClick(DuiLib::TNotifyUI& msg) {
@@ -58,6 +74,7 @@ LRESULT MainFrame::OnMouseMove(UINT uMsg, WPARAM wParam,
 		((DuiLib::CButtonUI*)pMove)->SetTextColor(WECHAT_WHITE);
 		bSendHot_ = true;
 	} else if (bSendHot_) {
+		bSendHot_ = false;
 		DuiLib::CButtonUI *pSendBtn = (DuiLib::CButtonUI*)m_PaintManager.FindControl(BUTTON_SEND);
 		pSendBtn->SetBkColor(WECHAT_WHITE);
 		pSendBtn->SetTextColor(WECHAT_GRAY);
