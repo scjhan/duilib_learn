@@ -9,6 +9,10 @@
 
 // ID define
 #define BUTTON_CLOSE	_T("BtnClose")
+#define BUTTON_MIN      _T("BtnMin")
+#define BUTTON_MAX      _T("BtnMax")
+#define BUTTON_DING     _T("BtnDing")
+#define BUTTON_RESTORE  _T("BtnRestore")
 #define BUTTON_TOOL		_T("BtnTool")
 #define BUTTON_SEND		_T("BtnSend")
 #define TABEL_CHATER	_T("TblChater")
